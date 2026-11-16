@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>noVAR | Transparent technology procurement</title>
+<meta name="description" content="noVAR sources hardware, software and services for large businesses with every cost and option in plain view. Engineers, not salespeople. Book a spend review.">
+<meta name="theme-color" content="#000000">
+<!-- Preview deployment: kept out of search so it does not compete with novar.solutions. Remove when this becomes the live site. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/logo-circle.png">
+<link rel="apple-touch-icon" href="assets/logo-circle.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="noVAR">
+<meta property="og:title" content="noVAR | See what your technology actually costs">
+<meta property="og:description" content="Transparent technology procurement for large businesses. Every cost and option in plain view.">
+<meta property="og:image" content="https://caliber-holdings.github.io/novar/assets/logo-tagline-alabaster.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="noVAR | See what your technology actually costs">
+<meta name="twitter:description" content="Transparent technology procurement for large businesses.">
+<meta name="twitter:image" content="https://caliber-holdings.github.io/novar/assets/logo-tagline-alabaster.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a VAR, and why noVAR?","acceptedAnswer":{"@type":"Answer","text":"A value added reseller buys technology and resells it with its margin folded into one price. noVAR was created to challenge that model by making cost, options and incentives visible so clients stay in control of what they buy."}},
+{"@type":"Question","name":"What can noVAR procure?","acceptedAnswer":{"@type":"Answer","text":"Hardware, software and services for large scale businesses, handled through one transparent, streamlined process."}},
+{"@type":"Question","name":"What does transparency look like in practice?","acceptedAnswer":{"@type":"Answer","text":"You see what the technology actually costs and how each option compares, so you can make an informed decision instead of accepting a single bundled number."}},
+{"@type":"Question","name":"Who is on the noVAR team?","acceptedAnswer":{"@type":"Answer","text":"Experienced technical professionals, not salespeople. The team spent years in the technology services sector before starting noVAR."}},
+{"@type":"Question","name":"How does the first conversation work?","acceptedAnswer":{"@type":"Answer","text":"We talk through your environment, needs, goals and budget, then prepare data driven options for you to review. Nothing is decided for you."}},
+{"@type":"Question","name":"How is noVAR paid?","acceptedAnswer":{"@type":"Answer","text":"Our margin is never hidden. We disclose it during the quoting process and negotiate it with you, so you always know what noVAR earns on every purchase."}},
+{"@type":"Question","name":"Where is noVAR based?","acceptedAnswer":{"@type":"Answer","text":"Spring, Texas. noVAR is part of the Caliber Holdings family of companies."}}
+]}
+</script>
+<style>
+:root{
+  --bg:#000000; --s1:#131209; --s2:#181818; --s3:#1F1F1F; --s4:#272727; --s5:#313131;
+  --text:#FFFFFF; --text-2:#B4B9BF; --text-3:#7E858D; --grey:#565E67;
+  --blue:#0070FF; --blue-hi:#3D93FF; --blue-soft:#8CBEFF;
+  --blue-a08:rgba(0,112,255,.08); --blue-a16:rgba(0,112,255,.16); --blue-a32:rgba(0,112,255,.32);
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --ok:#3DDC97; --bad:#FF6B6B;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --sp-25:2px; --sp-50:4px; --sp-75:8px; --sp-100:12px; --sp-200:16px; --sp-300:24px; --sp-400:32px; --sp-500:40px; --sp-600:48px; --sp-700:64px; --sp-800:80px; --sp-900:96px;
+  --font:'Geist',system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}
+h1,h2,h3,h4,h5,h6{text-wrap:balance}
+:focus-visible{outline:2px solid var(--blue-hi);outline-offset:3px;border-radius:8px}
+.ph{line-height:1}
+
+/* Text styles */
+.heading-1{font-size:60px;line-height:60px;font-weight:600;letter-spacing:-0.035em}
+.heading-2{font-size:48px;line-height:48px;font-weight:600;letter-spacing:-0.03em}
+.heading-3{font-size:36px;line-height:40px;font-weight:600;letter-spacing:-0.025em}
+.heading-4{font-size:30px;line-height:36px;font-weight:600;letter-spacing:-0.02em}
+.heading-5{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-0.015em}
+.heading-6{font-size:20px;line-height:28px;font-weight:600;letter-spacing:-0.01em}
+.title-1{font-size:20px;line-height:28px;font-weight:500}
+.title-2{font-size:18px;line-height:28px;font-weight:500}
+.title-3{font-size:16px;line-height:24px;font-weight:500}
+.title-4{font-size:14px;line-height:20px;font-weight:500}
+.title-5{font-size:12px;line-height:16px;font-weight:500}
+.body-1{font-size:16px;line-height:24px;font-weight:600}
+.body-2{font-size:16px;line-height:24px;font-weight:500}
+.body-3{font-size:16px;line-height:24px;font-weight:400}
+.body-4{font-size:14px;line-height:20px;font-weight:600}
+.body-5{font-size:14px;line-height:20px;font-weight:500}
+.body-6{font-size:14px;line-height:20px;font-weight:400}
+.button-lg{font-size:18px;line-height:28px;font-weight:600}
+.button-md{font-size:16px;line-height:24px;font-weight:600}
+.button-sm{font-size:14px;line-height:20px;font-weight:600}
+.caption-1{font-size:14px;line-height:20px;font-weight:500}
+.caption-2{font-size:14px;line-height:20px;font-weight:400}
+.caption-3{font-size:12px;line-height:16px;font-weight:600}
+.caption-4{font-size:12px;line-height:16px;font-weight:500}
+.caption-5{font-size:12px;line-height:16px;font-weight:400}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--text-2)}
+.faint{color:var(--text-3)}
+.blue{color:var(--blue-hi)}
+@media (max-width:767px){
+  .heading-1{font-size:36px;line-height:40px}
+  .heading-2{font-size:30px;line-height:36px}
+  .heading-3{font-size:30px;line-height:36px}
+}
+
+/* Layout */
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--sp-300)}
+@media (max-width:767px){.wrap{padding:0 var(--sp-200)}}
+section{position:relative}
+.section{padding:var(--sp-900) 0}
+@media (max-width:767px){.section{padding:var(--sp-700) 0}}
+.eyebrow{display:inline-flex;align-items:center;gap:var(--sp-75);padding:var(--sp-50) var(--sp-100);border:1px solid var(--blue-a32);background:var(--blue-a08);border-radius:9999px;color:var(--blue-soft)}
+.eyebrow .dot{width:6px;height:6px;border-radius:9999px;background:var(--blue);box-shadow:0 0 0 4px var(--blue-a16);animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.sec-head{max-width:680px;display:flex;flex-direction:column;gap:var(--sp-200)}
+.sec-head.center{margin:0 auto;text-align:center;align-items:center}
+.sec-head h2{color:var(--text)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-75);padding:var(--sp-75) var(--sp-100);border-radius:9999px;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform 300ms var(--ease),background-color 300ms var(--ease),border-color 300ms var(--ease),opacity 300ms var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1A7FFF;transform:translateY(-1px)}
+.btn-primary .ph{transition:transform 500ms var(--ease)}
+.btn-primary:hover .ph{transform:translateX(4px)}
+.btn-ghost{border-color:var(--line-2);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-lg{padding:var(--sp-100) var(--sp-300)}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+
+/* Skip link */
+.skip{position:fixed;left:var(--sp-200);top:var(--sp-200);z-index:100;padding:var(--sp-75) var(--sp-100);background:var(--blue);color:#fff;border-radius:9999px;transform:translateY(-200%);transition:transform 300ms var(--ease)}
+.skip:focus{transform:translateY(0)}
+
+/* Nav */
+.nav{position:fixed;top:var(--sp-200);left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:var(--sp-300);padding:var(--sp-75) var(--sp-75) var(--sp-75) var(--sp-300);background:rgba(24,24,24,.62);border:1px solid var(--line);border-radius:9999px;backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);transition:background-color 300ms var(--ease),border-color 300ms var(--ease)}
+.nav.scrolled{background:rgba(24,24,24,.82);border-color:var(--line-2)}
+.nav-logo img{height:24px;width:auto}
+.nav-links{display:flex;gap:var(--sp-50);list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:var(--sp-75) var(--sp-100);border-radius:9999px;color:var(--text-2);transition:color 300ms var(--ease),background-color 300ms var(--ease)}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-links a[aria-current="true"]{color:var(--text);background:rgba(255,255,255,.08)}
+.nav-toggle{display:none;width:40px;height:40px;border-radius:9999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;position:relative}
+.nav-toggle span{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;border-radius:2px;transition:transform 500ms var(--ease),opacity 300ms var(--ease)}
+.nav-toggle span:nth-child(1){top:15px}
+.nav-toggle span:nth-child(2){top:23px}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+@media (max-width:899px){
+  .nav{left:var(--sp-200);right:var(--sp-200);transform:none;justify-content:space-between;padding-left:var(--sp-200)}
+  .nav-links,.nav .nav-cta{display:none}
+  .nav-toggle{display:block}
+}
+.menu{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:var(--sp-900) var(--sp-300) var(--sp-400);display:flex;flex-direction:column;gap:var(--sp-75);opacity:0;pointer-events:none;transition:opacity 500ms var(--ease)}
+.menu.open{opacity:1;pointer-events:auto}
+.menu a.m-link{display:block;padding:var(--sp-100) 0;border-bottom:1px solid var(--line);opacity:0;transform:translateY(24px);transition:opacity 500ms var(--ease),transform 500ms var(--ease)}
+.menu.open a.m-link{opacity:1;transform:none}
+.menu .btn{margin-top:var(--sp-300);opacity:0;transform:translateY(24px);transition:opacity 500ms var(--ease),transform 500ms var(--ease)}
+.menu.open .btn{opacity:1;transform:none}
+
+/* Hero */
+.hero{position:relative;padding:160px 0 var(--sp-800);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-inner{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--sp-300)}
+.hero h1{max-width:680px;background:linear-gradient(90deg,#FFFFFF,#9B9B9B);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:var(--sp-50)}
+.hero .sub{max-width:680px}
+.hero-proof{display:flex;align-items:center;gap:var(--sp-100);padding:var(--sp-75) var(--sp-200) var(--sp-75) var(--sp-75);border:1px solid var(--line);border-radius:9999px;background:rgba(24,24,24,.7);backdrop-filter:blur(8px)}
+.hero-proof .ic{width:28px;height:28px;border-radius:9999px;background:var(--blue-a16);display:grid;place-items:center;color:var(--blue-hi)}
+@media (max-width:767px){.hero{padding:128px 0 var(--sp-600)}.hero-proof{border-radius:var(--sp-200);text-align:left}}
+
+/* Hero load sequence */
+.load{opacity:0;transform:translateY(24px);animation:loadIn 900ms var(--ease) forwards}
+@keyframes loadIn{to{opacity:1;transform:none}}
+
+/* Console */
+.console-wrap{position:relative;margin-top:var(--sp-700);perspective:1600px}
+.console{position:relative;background:var(--s2);border:1px solid var(--line-2);border-radius:24px;overflow:hidden;transform:rotateX(8deg) scale(.96);transform-origin:50% 0;opacity:0;transition:transform 1200ms var(--ease),opacity 1200ms var(--ease)}
+.console.in{transform:none;opacity:1}
+.console-bar{display:flex;align-items:center;gap:var(--sp-100);padding:var(--sp-100) var(--sp-200);border:1px solid transparent;border-bottom-color:var(--line);background:var(--s3)}
+.console-bar .lights{display:flex;gap:var(--sp-75)}
+.console-bar .lights i{width:10px;height:10px;border-radius:9999px;background:var(--s5)}
+.console-bar .tag{margin-left:auto;padding:var(--sp-25) var(--sp-75);border:1px solid var(--line-2);border-radius:9999px;color:var(--text-3)}
+.console-body{display:grid;grid-template-columns:1fr 340px}
+.ledger{position:relative;padding:var(--sp-300);border-right:1px solid var(--line)}
+.ledger-head,.row{display:grid;grid-template-columns:1.6fr 1fr 1fr 96px;gap:var(--sp-200);align-items:center}
+.ledger-head{padding:0 var(--sp-100) var(--sp-100);color:var(--text-3);border-bottom:1px solid var(--line)}
+.ledger-head span:not(:first-child),.row .num{text-align:right}
+.row{position:relative;padding:var(--sp-200) var(--sp-100);border-bottom:1px solid var(--line)}
+.row:last-of-type{border-bottom:0}
+.row .name{display:flex;flex-direction:column;gap:var(--sp-25);min-width:0}
+.row .name small{color:var(--text-3)}
+.row .quoted{color:var(--text-2)}
+.cell-reveal{position:relative;display:flex;justify-content:flex-end;align-items:center;min-height:20px}
+.skel{position:absolute;right:0;top:50%;width:72px;height:12px;margin-top:-6px;border-radius:9999px;background:var(--s4);overflow:hidden;transition:opacity 300ms var(--ease)}
+.skel::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.08);transform:translateX(-100%);animation:shimmer 1.4s var(--ease) infinite}
+@keyframes shimmer{to{transform:translateX(100%)}}
+.real{opacity:0;transform:translateY(6px);transition:opacity 500ms var(--ease),transform 500ms var(--ease)}
+.row.shown .skel{opacity:0}
+.row.shown .real{opacity:1;transform:none}
+.chip{display:inline-flex;align-items:center;justify-content:center;padding:var(--sp-25) var(--sp-75);border-radius:9999px;background:var(--blue-a16);color:var(--blue-soft);border:1px solid var(--blue-a32)}
+.beam{position:absolute;left:0;right:0;top:0;height:64px;pointer-events:none;opacity:0;transition:opacity 300ms var(--ease)}
+.beam::before{content:"";position:absolute;left:var(--sp-300);right:var(--sp-300);top:50%;height:1px;background:var(--blue);box-shadow:0 0 16px 2px var(--blue),0 0 48px 8px rgba(0,112,255,.35)}
+.beam.on{opacity:1}
+.summary{padding:var(--sp-300);display:flex;flex-direction:column;gap:var(--sp-300);background:var(--s2)}
+.sum-block{display:flex;flex-direction:column;gap:var(--sp-75)}
+.sum-line{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-100)}
+.bar{position:relative;height:8px;border-radius:9999px;background:var(--s4);overflow:hidden}
+.bar i{position:absolute;inset:0;border-radius:9999px;transform-origin:0 50%;transition:transform 1200ms var(--ease)}
+.bar.q i{background:var(--s5);transform:scaleX(0)}
+.bar.t i{background:var(--blue);transform:scaleX(0)}
+.keep{padding:var(--sp-200);border-radius:16px;background:var(--blue-a08);border:1px solid var(--blue-a32);display:flex;flex-direction:column;gap:var(--sp-50);opacity:.4;transition:opacity 500ms var(--ease)}
+.keep.on{opacity:1}
+.opts{display:flex;flex-direction:column;gap:var(--sp-75)}
+.opt{display:flex;align-items:center;gap:var(--sp-100);padding:var(--sp-100);border-radius:12px;border:1px solid var(--line);background:var(--s3);opacity:.45;transform:translateX(8px);transition:opacity 500ms var(--ease),transform 500ms var(--ease),border-color 300ms var(--ease)}
+.opt.on{opacity:1;transform:none}
+.opt.pick{border-color:var(--blue)}
+.opt .k{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:var(--s4)}
+.opt.pick .k{background:var(--blue);color:#fff}
+@media (max-width:899px){
+  .console-body{grid-template-columns:1fr}
+  .ledger{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:599px){
+  .ledger{padding:var(--sp-200) var(--sp-100)}
+  .ledger-head,.row{grid-template-columns:1.4fr 1fr 64px;gap:var(--sp-100)}
+  .col-q{display:none}
+  .summary{padding:var(--sp-200)}
+}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:24px;background:var(--s2)}
+.stat{padding:var(--sp-500) var(--sp-400);display:flex;flex-direction:column;gap:var(--sp-75)}
+.stat + .stat{border-left:1px solid var(--line)}
+.stat .v{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-0.04em;font-weight:500}
+@media (max-width:899px){.stats{grid-template-columns:1fr}.stat + .stat{border-left:0;border-top:1px solid var(--line)}.stat{padding:var(--sp-300)}}
+.logos{margin-top:var(--sp-500);display:flex;flex-direction:column;align-items:center;gap:var(--sp-200)}
+.logo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--sp-400) var(--sp-700);width:100%}
+.logo-row img{width:auto;opacity:.55;transition:opacity 300ms var(--ease),transform 300ms var(--ease)}
+.logo-row img:hover{opacity:1;transform:translateY(-2px)}
+@media (max-width:767px){.logo-row{gap:var(--sp-300) var(--sp-500)}}
+
+/* Partners */
+.featured{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-200);margin-top:var(--sp-700)}
+.pcard{position:relative;display:flex;flex-direction:column;gap:var(--sp-300);padding:var(--sp-300);border-radius:24px;border:1px solid var(--line);background:var(--s2);overflow:hidden;transition:border-color 300ms var(--ease),transform 500ms var(--ease)}
+.pcard:hover{border-color:var(--blue-a32);transform:translateY(-4px)}
+.pcard .plogo{height:64px;display:flex;align-items:center}
+.pcard .plogo img{width:auto;max-width:100%;transition:transform 500ms var(--ease)}
+.pcard:hover .plogo img{transform:scale(1.04)}
+.pcard .txt{display:flex;flex-direction:column;gap:var(--sp-50)}
+.pcard .cat{color:var(--blue-soft)}
+.pcard .glow{position:absolute;top:var(--sp-300);right:var(--sp-300);width:8px;height:8px;border-radius:9999px;background:var(--s5);transition:background-color 300ms var(--ease)}
+.pcard:hover .glow{background:var(--blue)}
+@media (max-width:1099px){.featured{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:767px){.featured{grid-template-columns:1fr 1fr}.pcard{padding:var(--sp-200);gap:var(--sp-200)}.pcard .glow{top:var(--sp-200);right:var(--sp-200)}}
+@media (max-width:420px){.featured{grid-template-columns:1fr}}
+.logo-marquee{margin-top:var(--sp-500);overflow:hidden;display:flex;flex-direction:column;gap:var(--sp-300);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.lm-track{display:flex;align-items:center;gap:var(--sp-700);padding-right:var(--sp-700);width:max-content;animation:marq 60s linear infinite}
+.lm-track.rev{animation-direction:reverse;animation-duration:70s}
+.logo-marquee:hover .lm-track{animation-play-state:paused}
+.lm-track img{width:auto;opacity:.45;transition:opacity 300ms var(--ease)}
+.lm-track img:hover{opacity:1}
+.partner-foot{margin-top:var(--sp-500);display:flex;justify-content:center;flex-wrap:wrap;gap:var(--sp-75)}
+.partner-foot span{padding:var(--sp-50) var(--sp-100);border-radius:9999px;border:1px solid var(--line-2);color:var(--text-2)}
+
+/* Testimonial */
+.testimonial{grid-column:1 / -1;position:relative;border-radius:24px;border:1px solid var(--line);background:var(--s2);padding:var(--sp-600);display:grid;grid-template-columns:auto 1fr;gap:var(--sp-400);align-items:start}
+.testimonial .qicon{width:48px;height:48px;border-radius:16px;background:var(--blue);display:grid;place-items:center;font-size:24px}
+.testimonial blockquote{margin:0;display:flex;flex-direction:column;gap:var(--sp-300);padding-right:var(--sp-900)}
+@media (max-width:767px){.testimonial blockquote{padding-right:0}}
+.testimonial .who{display:flex;align-items:center;gap:var(--sp-100)}
+.testimonial .avatar{width:40px;height:40px;border-radius:9999px;background:var(--s4);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--text-3)}
+.testimonial .ph-badge{position:absolute;top:var(--sp-300);right:var(--sp-300)}
+@media (max-width:767px){.testimonial{grid-template-columns:1fr;padding:var(--sp-300);gap:var(--sp-300)}.testimonial .ph-badge{position:static;justify-self:start}}
+.stats-note{margin-top:var(--sp-200);text-align:center}
+
+/* Marquee */
+.marquee{overflow:hidden;border:1px solid var(--line);border-left:0;border-right:0;padding:var(--sp-300) 0;background:var(--bg)}
+.marquee-track{display:flex;width:max-content;animation:marq 40s linear infinite}
+.marquee-track span{display:inline-flex;align-items:center;gap:var(--sp-300);padding-right:var(--sp-300);color:var(--text-3);white-space:nowrap}
+.marquee-track span i{color:var(--blue)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* Compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-300);margin-top:var(--sp-700)}
+.cmp{padding:var(--sp-400);border-radius:24px;border:1px solid var(--line);background:var(--s2);display:flex;flex-direction:column;gap:var(--sp-300)}
+.cmp.us{border-color:var(--blue-a32);background:var(--s2);position:relative;overflow:hidden}
+.cmp-top{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-200)}
+.cmp ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--sp-200)}
+.cmp li{display:flex;gap:var(--sp-100);align-items:flex-start}
+.cmp li .ph{font-size:20px;margin-top:2px;flex-shrink:0}
+.cmp.them li .ph{color:var(--text-3)}
+.cmp.them li{color:var(--text-2)}
+.cmp.us li .ph{color:var(--blue-hi)}
+.cmp.us img{height:24px;width:auto}
+@media (max-width:767px){.compare{grid-template-columns:1fr}.cmp{padding:var(--sp-300)}}
+
+/* Tagline reveal */
+.tagline{padding:var(--sp-900) 0 calc(var(--sp-900) + var(--sp-700))}
+.tagline .quote-mark{color:var(--blue);font-size:48px;line-height:48px;margin-bottom:var(--sp-300)}
+.tagline p{max-width:880px}
+.tagline .w{opacity:.3;transition:opacity 600ms var(--ease)}
+.tagline .w.on{opacity:1}
+.tagline .w.hl.on{color:var(--blue-hi)}
+.tagline .src{margin-top:var(--sp-400);color:var(--text-3)}
+
+/* Bento */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-300);margin-top:var(--sp-700)}
+.card{position:relative;border:1px solid var(--line);border-radius:24px;background:var(--s2);padding:var(--sp-300);display:flex;flex-direction:column;gap:var(--sp-300);overflow:hidden;transition:border-color 300ms var(--ease),transform 500ms var(--ease)}
+.card:hover{border-color:var(--line-2);transform:translateY(-4px)}
+.card.wide{grid-column:span 2}
+.card .viz{position:relative;height:200px;border-radius:16px;background:var(--s1);border:1px solid var(--line);overflow:hidden}
+.card .txt{display:flex;flex-direction:column;gap:var(--sp-75)}
+@media (max-width:899px){.bento{grid-template-columns:1fr}.card.wide{grid-column:auto}}
+
+/* viz 1: split bar */
+.split{position:absolute;left:var(--sp-300);right:var(--sp-300);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:var(--sp-200)}
+.split-row{display:flex;height:40px;width:100%}
+.seg{position:relative;height:100%;display:flex;align-items:center;padding:0 var(--sp-100);color:#fff;overflow:hidden;transition:transform 900ms var(--ease),opacity 600ms var(--ease)}
+.seg:first-child{border-radius:12px 0 0 12px}
+.seg:last-child{border-radius:0 12px 12px 0}
+.seg.a{width:58%;background:var(--blue)}
+.seg.b{width:14%;background:#1A4E9A}
+.seg.c{width:28%;background:var(--s5)}
+.seg .lbl{opacity:0;transition:opacity 500ms var(--ease);white-space:nowrap}
+.split.go .seg.b{transform:translateX(8px)}
+.split.go .seg.c{transform:translateX(16px)}
+.split.go .seg .lbl{opacity:1}
+.split .cap{display:flex;justify-content:space-between;color:var(--text-3)}
+.split .cap .after{opacity:0;transition:opacity 500ms var(--ease)}
+.split.go .cap .after{opacity:1}
+.split.go .cap .before{opacity:.3}
+
+/* viz 2: options */
+.ostack{position:absolute;inset:var(--sp-300);display:flex;flex-direction:column;justify-content:center;gap:var(--sp-75)}
+.ocard{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-100);padding:var(--sp-75) var(--sp-100);border-radius:8px;border:1px solid var(--line);background:var(--s2);transition:transform 500ms var(--ease),border-color 300ms var(--ease),opacity 300ms var(--ease);opacity:.55}
+.ocard.on{transform:translateX(8px);border-color:var(--blue);opacity:1}
+.ocard .mono{color:var(--text-2)}
+
+/* viz 3: terminal */
+.term{position:absolute;inset:0;padding:var(--sp-300);font-family:var(--mono);font-size:12px;line-height:16px;display:flex;flex-direction:column;gap:var(--sp-75);color:var(--text-2)}
+.term .l{opacity:0;transform:translateY(4px);transition:opacity 400ms var(--ease),transform 400ms var(--ease)}
+.term .l.on{opacity:1;transform:none}
+.term .p{color:var(--blue-hi)}
+.term .g{color:var(--ok)}
+.cursor{display:inline-block;width:7px;height:14px;background:var(--blue-hi);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* viz 4: orbit */
+.orbit{position:absolute;inset:0;display:grid;place-items:center}
+.orbit .core{width:56px;height:56px;border-radius:9999px;background:var(--blue);display:grid;place-items:center;position:relative;z-index:2}
+.orbit .core img{width:40px;height:40px}
+.ring{position:absolute;border-radius:9999px;border:1px solid var(--line-2);animation:spin 18s linear infinite}
+.ring.r1{width:120px;height:120px}
+.ring.r2{width:180px;height:180px;animation-duration:28s;animation-direction:reverse;border-style:dashed}
+.ring i{position:absolute;top:-5px;left:50%;margin-left:-5px;width:10px;height:10px;border-radius:9999px;background:var(--blue-hi)}
+.ring.r2 i{background:#fff;top:auto;bottom:-4px;width:8px;height:8px;margin-left:-4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* viz 5: flow */
+.flow{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:var(--sp-300);padding:var(--sp-200)}
+.flow .srcs{display:flex;flex-direction:column;gap:var(--sp-75)}
+.flow .srcs span{padding:var(--sp-50) var(--sp-100);border-radius:9999px;border:1px solid var(--line-2);background:var(--s3);transition:transform 700ms var(--ease),opacity 500ms var(--ease)}
+.flow.go .srcs span{transform:translateX(16px);opacity:.5}
+.flow .arrow{color:var(--text-3);transition:transform 700ms var(--ease)}
+.flow.go .arrow{transform:translateX(4px);color:var(--blue-hi)}
+.flow .dest{padding:var(--sp-75) var(--sp-100);border-radius:12px;background:var(--blue);color:#fff;transform:scale(.92);opacity:.6;transition:transform 700ms var(--ease),opacity 500ms var(--ease)}
+.flow.go .dest{transform:scale(1);opacity:1}
+
+/* Process */
+.steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-300);margin-top:var(--sp-700)}
+.track{position:absolute;left:0;right:0;top:24px;height:1px;background:var(--line-2)}
+.track i{position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:0 50%;transition:transform 1400ms var(--ease)}
+.steps.in .track i{transform:scaleX(1)}
+.step{position:relative;display:flex;flex-direction:column;gap:var(--sp-200)}
+.step .n{width:48px;height:48px;border-radius:9999px;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line-2);color:var(--text-2);transition:background-color 500ms var(--ease),border-color 500ms var(--ease),color 500ms var(--ease)}
+.steps.in .step .n{background:var(--blue);border-color:var(--blue);color:#fff}
+.steps.in .step:nth-child(3) .n{transition-delay:400ms}
+.steps.in .step:nth-child(4) .n{transition-delay:800ms}
+.step .box{padding:var(--sp-300);border-radius:24px;border:1px solid var(--line);background:var(--s2);display:flex;flex-direction:column;gap:var(--sp-75);flex:1}
+.step .box .ph{font-size:24px;color:var(--blue-hi);margin-bottom:var(--sp-75)}
+@media (max-width:899px){
+  .steps{grid-template-columns:1fr;gap:var(--sp-400);padding-left:var(--sp-700)}
+  .track{left:24px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .track i{transform:scaleY(0);transform-origin:50% 0}
+  .steps.in .track i{transform:scaleY(1)}
+  .step .n{position:absolute;left:calc(-1 * var(--sp-700));top:0}
+}
+
+/* Results */
+.results{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--sp-300);margin-top:var(--sp-700)}
+.big{border-radius:24px;border:1px solid var(--line);background:var(--s2);padding:var(--sp-400);display:flex;flex-direction:column;justify-content:space-between;gap:var(--sp-500);position:relative;overflow:hidden}
+.big .v{font-family:var(--mono);font-size:72px;line-height:72px;font-weight:500;letter-spacing:-0.05em;color:var(--text)}
+.big .v .blue{color:var(--blue-hi)}
+.big .bars{display:flex;align-items:flex-end;gap:var(--sp-75);height:120px}
+.big .bars i{flex:1;background:var(--s4);border-radius:4px 4px 0 0;height:100%;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1200ms var(--ease)}
+.big .bars i.hi{background:var(--blue)}
+.big.in .bars i{transform:scaleY(var(--h))}
+.side{display:flex;flex-direction:column;gap:var(--sp-300)}
+.mini{border-radius:24px;border:1px solid var(--line);background:var(--s2);padding:var(--sp-300);display:flex;flex-direction:column;gap:var(--sp-75)}
+.mini .v{font-family:var(--mono);font-size:48px;line-height:48px;font-weight:500;letter-spacing:-0.04em}
+.placeholder{border-radius:24px;border:1px dashed var(--line-2);padding:var(--sp-300);display:flex;flex-direction:column;gap:var(--sp-100);color:var(--text-3)}
+.placeholder .ph{font-size:24px;color:var(--blue-hi)}
+@media (max-width:899px){.results{grid-template-columns:1fr}.big .v{font-size:48px;line-height:48px}.big{padding:var(--sp-300)}}
+
+/* FAQ */
+.faq{max-width:800px;margin:var(--sp-700) auto 0;display:flex;flex-direction:column;gap:var(--sp-100)}
+.faq details{border:1px solid var(--line);border-radius:16px;background:var(--s2);transition:border-color 300ms var(--ease)}
+.faq details[open]{border-color:var(--line-2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:var(--sp-200);padding:var(--sp-200) var(--sp-300)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{width:28px;height:28px;flex-shrink:0;border-radius:9999px;border:1px solid var(--line-2);display:grid;place-items:center;transition:transform 500ms var(--ease),background-color 300ms var(--ease)}
+.faq details[open] summary .pm{transform:rotate(45deg);background:var(--blue);border-color:var(--blue)}
+.faq summary:hover .pm{background:rgba(255,255,255,.06)}
+.faq .a{padding:0 var(--sp-300) var(--sp-300);color:var(--text-2)}
+.faq details[open] .a{animation:faqIn 500ms var(--ease)}
+@keyframes faqIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.ph-text{color:var(--blue-soft);font-family:var(--mono);font-size:14px}
+
+/* Contact */
+.cta-box{border-radius:32px;border:1px solid var(--line-2);background:var(--s2);padding:var(--sp-700);display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-700);position:relative;overflow:hidden}
+.cta-box canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.7}
+.cta-box > *:not(canvas){position:relative}
+.cta-left{display:flex;flex-direction:column;gap:var(--sp-300)}
+.assure{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--sp-100)}
+.assure li{display:flex;gap:var(--sp-100);align-items:center}
+.assure .ph{color:var(--blue-hi);font-size:20px}
+.contact-lines{display:flex;flex-direction:column;gap:var(--sp-75);margin-top:auto;padding-top:var(--sp-300);border-top:1px solid var(--line)}
+.contact-lines a,.contact-lines span{display:flex;gap:var(--sp-100);align-items:center;color:var(--text-2);transition:color 300ms var(--ease)}
+.contact-lines a:hover{color:var(--text)}
+.contact-lines .ph{color:var(--blue-hi);font-size:18px}
+form{display:flex;flex-direction:column;gap:var(--sp-200);padding:var(--sp-300);border-radius:24px;background:var(--s1);border:1px solid var(--line)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-200)}
+.field{display:flex;flex-direction:column;gap:var(--sp-75)}
+.field label{color:var(--text-2)}
+.field label em{font-style:normal;color:var(--text-3)}
+.field input,.field textarea{width:100%;font:inherit;font-size:16px;line-height:24px;color:var(--text);background:var(--s2);border:1px solid var(--line-2);border-radius:12px;padding:var(--sp-75) var(--sp-100);transition:border-color 300ms var(--ease),background-color 300ms var(--ease)}
+.field textarea{min-height:120px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:var(--text-3)}
+.field input:hover,.field textarea:hover{border-color:rgba(255,255,255,.24)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:var(--s3)}
+.field.err input,.field.err textarea{border-color:var(--bad)}
+.field .msg{color:var(--bad);display:none;align-items:center;gap:var(--sp-50)}
+.field.err .msg{display:flex}
+.form-note{color:var(--text-3)}
+.form-done{display:none;flex-direction:column;gap:var(--sp-100);padding:var(--sp-300);border-radius:24px;background:var(--blue-a08);border:1px solid var(--blue-a32)}
+.form-done.show{display:flex;animation:loadIn 600ms var(--ease)}
+.form-done .ph{font-size:28px;color:var(--blue-hi)}
+.btn.loading{position:relative;color:transparent}
+.btn.loading::after{content:"";position:absolute;left:var(--sp-300);right:var(--sp-300);top:50%;height:6px;margin-top:-3px;border-radius:9999px;background:rgba(255,255,255,.35);animation:pulse 1s var(--ease) infinite}
+@media (max-width:899px){.cta-box{grid-template-columns:1fr;padding:var(--sp-400) var(--sp-300);gap:var(--sp-500)}}
+@media (max-width:599px){.f-row{grid-template-columns:1fr}.cta-box{padding:var(--sp-300) var(--sp-200);border-radius:24px}form{padding:var(--sp-200)}}
+
+/* Footer */
+footer{border-top:1px solid var(--line);margin-top:var(--sp-900);padding:var(--sp-700) 0 var(--sp-400)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--sp-500)}
+.foot img{height:48px;width:auto}
+.foot h3{color:var(--text-3);margin-bottom:var(--sp-200)}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--sp-75)}
+.foot ul a{color:var(--text-2);transition:color 300ms var(--ease)}
+.foot ul a:hover{color:var(--text)}
+.foot-bottom{display:flex;justify-content:space-between;gap:var(--sp-200);flex-wrap:wrap;margin-top:var(--sp-700);padding-top:var(--sp-300);border-top:1px solid var(--line);color:var(--text-3)}
+.foot-bottom a{color:var(--text-2)}
+.foot-bottom a:hover{color:var(--text)}
+.social{display:flex;gap:var(--sp-75);margin-top:var(--sp-300)}
+.social a{width:40px;height:40px;border-radius:9999px;border:1px solid var(--line-2);display:grid;place-items:center;font-size:18px;transition:background-color 300ms var(--ease),transform 300ms var(--ease)}
+.social a:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+@media (max-width:767px){.foot{grid-template-columns:1fr 1fr}.foot > div:first-child{grid-column:1 / -1}}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:80ms}.d2{transition-delay:160ms}.d3{transition-delay:240ms}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important}
+  .reveal,.load,.console,.real,.opt,.term .l,.menu a.m-link,.menu .btn{transform:none!important;transition:opacity 300ms linear!important}
+  .load{opacity:1}
+  .tagline .w{opacity:1!important;transition:none!important}
+  .marquee-track{animation:none}
+  .ring{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip button-sm" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="nav-logo" href="#top" aria-label="noVAR home"><img src="assets/logo-without-clarifier-alabaster.png" alt="noVAR"></a>
+  <ul class="nav-links title-4">
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="btn btn-primary button-sm nav-cta" href="#contact">Book a spend review</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</nav>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <a class="m-link heading-5" href="#approach">Approach</a>
+  <a class="m-link heading-5" href="#benefits">Benefits</a>
+  <a class="m-link heading-5" href="#partners">Partners</a>
+  <a class="m-link heading-5" href="#process">Process</a>
+  <a class="m-link heading-5" href="#results">Results</a>
+  <a class="m-link heading-5" href="#faq">FAQ</a>
+  <a class="btn btn-primary button-md btn-lg" href="#contact">Book a spend review <i class="ph ph-arrow-right"></i></a>
+</div>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow caption-4 load" style="animation-delay:100ms"><span class="dot"></span>Transparent technology procurement</span>
+      <h1 class="heading-1 load" style="animation-delay:200ms">See the real cost<br> of your technology.</h1>
+      <p class="sub body-3 muted load" style="animation-delay:320ms">noVAR sources hardware, software and services for large businesses with every cost and every option in plain view. You get the data, and you make the call.</p>
+      <div class="load" style="animation-delay:440ms">
+        <a class="btn btn-primary button-md btn-lg" href="#contact">Book a spend review <i class="ph ph-arrow-right"></i></a>
+      </div>
+      <div class="hero-proof load" style="animation-delay:560ms">
+        <span class="ic"><i class="ph-bold ph-trend-down"></i></span>
+        <span class="body-6 muted"><span class="mono body-4" style="color:#fff" data-count="122967945" data-prefix="$">$122,967,945</span> in procurement dollars saved for noVAR clients</span>
+      </div>
+    </div>
+
+    <div class="console-wrap">
+      <div class="console" id="console" role="img" aria-label="Illustrative example of a noVAR quote review showing the real cost and hidden margin behind each line item">
+        <div class="console-bar">
+          <div class="lights"><i></i><i></i><i></i></div>
+          <span class="caption-4 faint">noVAR · Quote review</span>
+          <span class="tag caption-5">Illustrative sample</span>
+        </div>
+        <div class="console-body">
+          <div class="ledger" id="ledger">
+            <div class="ledger-head caption-4">
+              <span>Line item</span><span class="col-q">Reseller quote</span><span>Actual cost</span><span>Margin</span>
+            </div>
+            <div id="rows"></div>
+            <div class="beam" id="beam"></div>
+          </div>
+          <div class="summary">
+            <div class="sum-block">
+              <div class="sum-line"><span class="caption-4 faint">Reseller quote</span><span class="mono body-5 muted" id="sumQ">$0</span></div>
+              <div class="bar q"><i id="barQ"></i></div>
+            </div>
+            <div class="sum-block">
+              <div class="sum-line"><span class="caption-4 faint">Transparent cost</span><span class="mono body-5" id="sumT">$0</span></div>
+              <div class="bar t"><i id="barT"></i></div>
+            </div>
+            <div class="keep" id="keep">
+              <span class="caption-4 blue">Returned to your budget</span>
+              <span class="mono heading-5" id="sumK">$0</span>
+            </div>
+            <div class="sum-block">
+              <span class="caption-4 faint">Options prepared for you</span>
+              <div class="opts" id="opts">
+                <div class="opt"><span class="k caption-3">A</span><span class="body-6">Matched spec, direct source</span></div>
+                <div class="opt"><span class="k caption-3">B</span><span class="body-6">Alternate manufacturer</span></div>
+                <div class="opt"><span class="k caption-3">C</span><span class="body-6">Phased rollout by site</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section aria-label="noVAR results">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><span class="v heading-3" data-count="122967945" data-prefix="$">$122,967,945</span><span class="body-6 muted">procurement dollars saved</span></div>
+      <div class="stat"><span class="v heading-3" data-count="31" data-suffix="%">31%</span><span class="body-6 muted">average savings per customer</span></div>
+      <div class="stat"><span class="v heading-3" data-count="29644">29,644</span><span class="body-6 muted">transparent transactions</span></div>
+    </div>
+    <div class="logos reveal" aria-label="Organizations that work with noVAR">
+      <span class="caption-4 faint">Trusted by teams at</span>
+      <div class="logo-row" id="clientRow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="section" id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow caption-4" style="align-self:flex-start"><i class="ph ph-eye"></i>Our approach</span>
+      <h2 class="heading-2">The reseller model was built<br> to keep you guessing</h2>
+      <p class="body-3 muted">Traditional VARs fold cost, margin and incentive into one number, then recommend whatever pays them best. noVAR was started by technical professionals who were tired of watching clients overpay for that.</p>
+    </div>
+    <div class="compare">
+      <article class="cmp them reveal">
+        <div class="cmp-top"><h3 class="heading-6 muted">The traditional VAR</h3><span class="caption-4 faint">Status quo</span></div>
+        <ul class="body-3">
+          <li><i class="ph ph-x-circle"></i>One bundled price with the margin buried inside</li>
+          <li><i class="ph ph-x-circle"></i>Recommendations shaped by sales targets</li>
+          <li><i class="ph ph-x-circle"></i>A single option to take or leave</li>
+          <li><i class="ph ph-x-circle"></i>A relationship that ends when the order ships</li>
+        </ul>
+      </article>
+      <article class="cmp us reveal d1">
+        <div class="cmp-top"><img src="assets/logo-without-clarifier-alabaster.png" alt="noVAR"><span class="chip caption-4">Radical transparency</span></div>
+        <ul class="body-2">
+          <li><i class="ph-fill ph-check-circle"></i>Our margin disclosed and negotiated in every quote</li>
+          <li><i class="ph-fill ph-check-circle"></i>Clear visibility into what each line actually costs</li>
+          <li><i class="ph-fill ph-check-circle"></i>Advice from engineers, not commissioned sellers</li>
+          <li><i class="ph-fill ph-check-circle"></i>An array of data driven options to compare</li>
+          <li><i class="ph-fill ph-check-circle"></i>A long term partner as your business grows</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track heading-5">
+    <span>Transparent <i class="ph-fill ph-asterisk-simple"></i></span><span>Streamlined <i class="ph-fill ph-asterisk-simple"></i></span><span>Simplified <i class="ph-fill ph-asterisk-simple"></i></span><span>Data driven <i class="ph-fill ph-asterisk-simple"></i></span><span>Client first <i class="ph-fill ph-asterisk-simple"></i></span><span>Engineers, not salespeople <i class="ph-fill ph-asterisk-simple"></i></span>
+    <span>Transparent <i class="ph-fill ph-asterisk-simple"></i></span><span>Streamlined <i class="ph-fill ph-asterisk-simple"></i></span><span>Simplified <i class="ph-fill ph-asterisk-simple"></i></span><span>Data driven <i class="ph-fill ph-asterisk-simple"></i></span><span>Client first <i class="ph-fill ph-asterisk-simple"></i></span><span>Engineers, not salespeople <i class="ph-fill ph-asterisk-simple"></i></span>
+  </div>
+</div>
+
+<!-- TAGLINE REVEAL -->
+<section class="tagline" aria-label="Our philosophy">
+  <div class="wrap">
+    <div class="quote-mark"><i class="ph-fill ph-quotes"></i></div>
+    <p class="heading-2" id="tagline" data-hl="sunlight disinfectant. every line">Sunlight is the best disinfectant.<br> We bring it to every line<br> of your technology spend.</p>
+    <p class="src caption-1">The principle noVAR was founded on</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section" id="benefits" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow caption-4" style="align-self:flex-start"><i class="ph ph-sparkle"></i>Why noVAR</span>
+      <h2 class="heading-2">Procurement that works<br> for the buyer</h2>
+      <p class="body-3 muted">We organize the chaos of technology procurement and put you back in control of what you are buying.</p>
+    </div>
+    <div class="bento">
+      <article class="card wide reveal">
+        <div class="viz" aria-hidden="true">
+          <div class="split" id="split">
+            <div class="split-row caption-3">
+              <div class="seg a"><span class="lbl">Product cost</span></div>
+              <div class="seg b"><span class="lbl">Logistics</span></div>
+              <div class="seg c"><span class="lbl">Reseller margin</span></div>
+            </div>
+            <div class="cap caption-5"><span class="before">One bundled number</span><span class="after">Every component, itemized</span></div>
+          </div>
+        </div>
+        <div class="txt"><h3 class="heading-6">You see the real cost</h3><p class="body-6 muted">Quotes are broken down so you can see what the hardware, software or service actually costs. Ambiguity has nowhere to hide.</p></div>
+      </article>
+      <article class="card reveal d1">
+        <div class="viz" aria-hidden="true">
+          <div class="ostack" id="ostack">
+            <div class="ocard"><span class="body-5">Option A</span><span class="mono caption-5">Best value</span></div>
+            <div class="ocard"><span class="body-5">Option B</span><span class="mono caption-5">Fastest lead time</span></div>
+            <div class="ocard"><span class="body-5">Option C</span><span class="mono caption-5">Lowest total cost</span></div>
+          </div>
+        </div>
+        <div class="txt"><h3 class="heading-6">You choose from real options</h3><p class="body-6 muted">We pair your goals and budget with industry data and lay the options side by side. The decision stays yours.</p></div>
+      </article>
+      <article class="card reveal">
+        <div class="viz" aria-hidden="true">
+          <div class="term" id="term">
+            <div class="l"><span class="p">&gt;</span> review quote 2291</div>
+            <div class="l">&nbsp; parsing 14 line items</div>
+            <div class="l">&nbsp; cost basis found for 14 of 14</div>
+            <div class="l">&nbsp; 3 alternatives benchmarked</div>
+            <div class="l g">&nbsp; ready for client review <span class="cursor"></span></div>
+          </div>
+        </div>
+        <div class="txt"><h3 class="heading-6">Engineers, not salespeople</h3><p class="body-6 muted">Our team comes from the technology services sector. We combine industry knowledge with personal relationships, not quotas.</p></div>
+      </article>
+      <article class="card reveal d1">
+        <div class="viz" aria-hidden="true">
+          <div class="orbit">
+            <div class="ring r2"><i></i></div>
+            <div class="ring r1"><i></i></div>
+            <div class="core"><img src="assets/logo-circle-alabaster.png" alt=""></div>
+          </div>
+        </div>
+        <div class="txt"><h3 class="heading-6">A partner on your team</h3><p class="body-6 muted">We become part of your team, with ongoing communication as your business and its needs grow.</p></div>
+      </article>
+      <article class="card reveal d2">
+        <div class="viz" aria-hidden="true">
+          <div class="flow" id="flow">
+            <div class="srcs caption-4"><span>Hardware</span><span>Software</span><span>Services</span></div>
+            <i class="ph ph-arrow-right arrow"></i>
+            <div class="dest caption-3">One clear process</div>
+          </div>
+        </div>
+        <div class="txt"><h3 class="heading-6">One simple process</h3><p class="body-6 muted">Hardware, software and services move through a single process that is transparent, streamlined and simplified.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="section" id="partners" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow caption-4" style="align-self:flex-start"><i class="ph ph-plugs-connected"></i>Partner network</span>
+      <h2 class="heading-2">Broad partnerships,<br> no catalog bias</h2>
+      <p class="body-3 muted">noVAR partners with more than 45 manufacturers and providers across infrastructure, networking, security, data protection and software. Because we are not tied to a single catalog, the options we bring you are compared across all of them.</p>
+    </div>
+    <div class="featured">
+      <article class="pcard reveal"><span class="glow" aria-hidden="true"></span><div class="plogo"><img data-logo="nutanix" alt="Nutanix"></div><div class="txt"><span class="caption-3 cat">Hybrid cloud infrastructure</span><p class="body-6 muted">Hyperconverged platforms that bring compute, storage and virtualization together.</p></div></article>
+      <article class="pcard reveal d1"><span class="glow" aria-hidden="true"></span><div class="plogo"><img data-logo="hpe" alt="Hewlett Packard Enterprise"></div><div class="txt"><span class="caption-3 cat">Compute, storage and networking</span><p class="body-6 muted">Servers, storage and Aruba networking from Hewlett Packard Enterprise.</p></div></article>
+      <article class="pcard reveal d2"><span class="glow" aria-hidden="true"></span><div class="plogo"><img data-logo="ruckus" alt="Ruckus Networks"></div><div class="txt"><span class="caption-3 cat">Wired and wireless networking</span><p class="body-6 muted">Wi&#8209;Fi and switching built for dense, high traffic environments.</p></div></article>
+      <article class="pcard reveal d1"><span class="glow" aria-hidden="true"></span><div class="plogo"><img data-logo="paloalto" alt="Palo Alto Networks"></div><div class="txt"><span class="caption-3 cat">Network security</span><p class="body-6 muted">Next generation firewalls and security platforms for the network and cloud.</p></div></article>
+      <article class="pcard reveal d2"><span class="glow" aria-hidden="true"></span><div class="plogo"><img data-logo="fortinet" alt="Fortinet"></div><div class="txt"><span class="caption-3 cat">Secure networking</span><p class="body-6 muted">Firewalls, secure branch networking and a unified security fabric.</p></div></article>
+    </div>
+    <div class="logo-marquee reveal" aria-label="More noVAR partners">
+      <div class="lm-track" id="lmA"></div>
+      <div class="lm-track rev" id="lmB"></div>
+    </div>
+    <div class="partner-foot caption-4 reveal" aria-hidden="true">
+      <span>Infrastructure</span><span>Networking</span><span>Security</span><span>Data protection</span><span>Software</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow caption-4" style="align-self:flex-start"><i class="ph ph-path"></i>A client first process</span>
+      <h2 class="heading-2">From first conversation<br> to lasting results</h2>
+    </div>
+    <div class="steps" id="steps">
+      <div class="track" aria-hidden="true"><i></i></div>
+      <div class="step reveal">
+        <span class="n mono body-4">01</span>
+        <div class="box"><i class="ph ph-chats-circle"></i><h3 class="heading-6">Start with a conversation</h3><p class="body-6 muted">We learn your environment, needs, goals and budget. You get questions from people who understand the technology, not a product pitch.</p></div>
+      </div>
+      <div class="step reveal d1">
+        <span class="n mono body-4">02</span>
+        <div class="box"><i class="ph ph-columns"></i><h3 class="heading-6">Compare data driven options</h3><p class="body-6 muted">We combine your desired result with our industry knowledge and present an array of options, with the cost of each one laid out plainly.</p></div>
+      </div>
+      <div class="step reveal d2">
+        <span class="n mono body-4">03</span>
+        <div class="box"><i class="ph ph-handshake"></i><h3 class="heading-6">Decide, then keep improving</h3><p class="body-6 muted">You make the decision. We fulfill it, stay in close contact and adjust as your business grows.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section" id="results" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow caption-4" style="align-self:flex-start"><i class="ph ph-chart-line-up"></i>Results</span>
+      <h2 class="heading-2">Measurable results,<br> shown in the open</h2>
+      <p class="body-3 muted">Knowing what technology actually costs leads to better decisions, and better decisions create long term value you can measure.</p>
+    </div>
+    <div class="results">
+      <div class="big reveal" id="bigCard">
+        <div>
+          <span class="caption-4 faint">Average savings per customer</span>
+          <div class="v" style="margin-top:var(--sp-100)"><span data-count="31">31</span><span class="blue">%</span></div>
+        </div>
+        <div class="bars" aria-hidden="true">
+          <i style="--h:.42"></i><i style="--h:.55"></i><i style="--h:.48"></i><i style="--h:.66"></i><i style="--h:.58"></i><i style="--h:.74"></i><i style="--h:.69"></i><i style="--h:.83"></i><i class="hi" style="--h:.97"></i>
+        </div>
+        <span class="caption-5 faint">Bars are decorative and do not represent client data.</span>
+      </div>
+      <div class="side">
+        <div class="mini reveal d1"><span class="v"><span data-count="29644">29,644</span></span><span class="body-6 muted">transparent transactions completed</span></div>
+        <div class="mini reveal d2"><span class="v" style="font-size:36px;line-height:40px"><span data-count="122967945" data-prefix="$">$122,967,945</span></span><span class="body-6 muted">procurement dollars saved for clients</span></div>
+      </div>
+      <!-- PLACEHOLDER TESTIMONIAL: replace the quote, name, title and company with a real, approved client quote before deploying, then delete the badge. -->
+      <figure class="testimonial reveal" style="margin:0">
+        <span class="ph-badge chip caption-3">Placeholder testimonial</span>
+        <span class="qicon" aria-hidden="true"><i class="ph-fill ph-quotes"></i></span>
+        <blockquote>
+          <p class="heading-5">For the first time we could see exactly what we were paying for and why. noVAR laid out three options with the numbers behind each one, and we made the call ourselves.</p>
+          <figcaption class="who">
+            <span class="avatar" aria-hidden="true"><i class="ph ph-user"></i></span>
+            <span><span class="title-3" style="display:block">Client name</span><span class="caption-2 faint">Title, Company</span></span>
+          </figcaption>
+        </blockquote>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow caption-4"><i class="ph ph-question"></i>FAQ</span>
+      <h2 class="heading-2">Questions buyers ask us</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary class="title-2">What is a VAR, and why noVAR?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">A value added reseller buys technology and resells it with its margin folded into one price. noVAR was created to challenge that model by making cost, options and incentives visible, so clients stay in control of what they buy.</p></details>
+      <details class="reveal"><summary class="title-2">What can noVAR procure?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">Hardware, software and services for large scale businesses, all handled through one transparent and streamlined process.</p></details>
+      <details class="reveal"><summary class="title-2">What does transparency look like in practice?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">You see what the technology actually costs and how each option compares, so you can make an informed decision instead of accepting a single bundled number.</p></details>
+      <details class="reveal"><summary class="title-2">Who is on the noVAR team?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">Experienced technical professionals, not salespeople. The team spent years in the technology services sector and started noVAR after growing frustrated with how the traditional VAR system treated clients.</p></details>
+      <details class="reveal"><summary class="title-2">How does the first conversation work?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">We talk through your environment, needs, goals and budget. From there we prepare data driven options for you to review. Nothing is decided for you.</p></details>
+      <details class="reveal"><summary class="title-2">How is noVAR paid?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">Our margin is never hidden. We disclose it during the quoting process and negotiate it with you, so you always know what noVAR earns on every purchase.</p></details>
+      <details class="reveal"><summary class="title-2">Where is noVAR based?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">Spring, Texas, at 20115 Stuebner Airline Rd. noVAR is part of the Caliber Holdings family of companies.</p></details>
+      <details class="reveal"><summary class="title-2">How do I get started?<span class="pm"><i class="ph ph-plus"></i></span></summary><p class="a body-3">Book a spend review with the form below, call <a class="blue" href="tel:+12819724422">(281) 972 4422</a>, or email <a class="blue" href="mailto:help@novar.solutions">help@novar.solutions</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="contact" aria-labelledby="ctaTitle">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <canvas id="ctaField" aria-hidden="true"></canvas>
+      <div class="cta-left">
+        <span class="eyebrow caption-4" style="align-self:flex-start"><span class="dot"></span>Spend review</span>
+        <h2 class="heading-3" id="ctaTitle">Find out what your technology should cost</h2>
+        <p class="body-3 muted">Tell us what you are buying or renewing. We will come back with options and the numbers behind each one.</p>
+        <ul class="assure body-5">
+          <li><i class="ph-fill ph-check-circle"></i>Starts with a conversation, not a contract</li>
+          <li><i class="ph-fill ph-check-circle"></i>Our margin is disclosed and negotiable</li>
+          <li><i class="ph-fill ph-check-circle"></i>You make every decision</li>
+          <li><i class="ph-fill ph-check-circle"></i>Engineers, not salespeople</li>
+        </ul>
+        <div class="contact-lines body-6">
+          <a href="tel:+12819724422"><i class="ph ph-phone"></i>(281) 972 4422</a>
+          <a href="mailto:help@novar.solutions"><i class="ph ph-envelope-simple"></i>help@novar.solutions</a>
+          <span><i class="ph ph-map-pin"></i>20115 Stuebner Airline Rd., Spring, TX 77389</span>
+        </div>
+      </div>
+      <div>
+        <form id="leadForm" novalidate>
+          <div class="f-row">
+            <div class="field"><label class="caption-1" for="fName">Name</label><input id="fName" name="name" autocomplete="name" placeholder="Jordan Whitaker" required><span class="msg caption-5"><i class="ph ph-warning-circle"></i>Enter your name.</span></div>
+            <div class="field"><label class="caption-1" for="fCompany">Company</label><input id="fCompany" name="company" autocomplete="organization" placeholder="Gulf Coast Health Partners" required><span class="msg caption-5"><i class="ph ph-warning-circle"></i>Enter your company.</span></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label class="caption-1" for="fEmail">Work email</label><input id="fEmail" name="email" type="email" autocomplete="email" placeholder="jordan@company.com" required><span class="msg caption-5"><i class="ph ph-warning-circle"></i><span>Enter a valid work email.</span></span></div>
+            <div class="field"><label class="caption-1" for="fPhone">Phone <em>(optional)</em></label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="(713) 555 0148"></div>
+          </div>
+          <div class="field"><label class="caption-1" for="fMsg">What are you buying or renewing?</label><textarea id="fMsg" name="message" placeholder="For example: 400 laptops for a Q1 refresh, plus our Microsoft renewal in March." required></textarea><span class="msg caption-5"><i class="ph ph-warning-circle"></i>Tell us a little about what you need.</span></div>
+          <button class="btn btn-primary button-md btn-lg" type="submit" id="submitBtn">Book a spend review <i class="ph ph-arrow-right"></i></button>
+          <p class="form-note caption-5">We use your details only to respond to this request. See our <a class="blue" href="https://www.novar.solutions/data-privacy-policy">data privacy policy</a>.</p>
+        </form>
+        <div class="form-done" id="formDone" role="status" aria-live="polite">
+          <i class="ph-fill ph-check-circle"></i>
+          <h3 class="heading-6" id="doneTitle">Request ready to send</h3>
+          <p class="body-6 muted" id="doneText"></p>
+          <button class="btn btn-ghost button-sm" type="button" id="resetForm" style="align-self:flex-start">Start a new request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/logo-tagline-alabaster.png" alt="noVAR, transparent technology procurement">
+        <p class="body-6 muted" style="margin-top:var(--sp-200);max-width:320px">A disruptor in the aging model of technology consumption. Hardware, software and services, procured in the open.</p>
+        <div class="social">
+          <a href="https://www.linkedin.com/company/novarsolutions" aria-label="noVAR on LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="mailto:help@novar.solutions" aria-label="Email noVAR"><i class="ph ph-envelope-simple"></i></a>
+          <a href="tel:+12819724422" aria-label="Call noVAR"><i class="ph ph-phone"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="title-5">Explore</h3>
+        <ul class="body-6">
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="title-5">Contact</h3>
+        <ul class="body-6">
+          <li><a href="tel:+12819724422">(281) 972 4422</a></li>
+          <li><a href="mailto:help@novar.solutions">help@novar.solutions</a></li>
+          <li><a href="#contact">Book a spend review</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom caption-5">
+      <span>© <span id="yr">2026</span> noVAR. All rights reserved. A Caliber Holdings company.</span>
+      <span><a href="https://www.novar.solutions/data-privacy-policy">Data privacy policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const fmt = n => Math.round(n).toLocaleString('en-US');
+  const ease = t => 1 - Math.pow(1 - t, 4);
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---------- Logos ----------
+     All logos are white silhouettes in assets/logos/clean. Heights are optically balanced
+     by aspect ratio so wide wordmarks and compact marks read at a similar visual weight. */
+  const LOGOS = {
+    nutanix:['Nutanix',7.745], ruckus:['Ruckus Networks',2.639], paloalto:['Palo Alto Networks',5.437], fortinet:['Fortinet',8.409],
+    hpe:['Hewlett Packard Enterprise',3.447], cisco:['Cisco',1.9], dellemc:['Dell EMC',6.065], lenovo:['Lenovo',4.769],
+    microsoft:['Microsoft',4.609], crowdstrike:['CrowdStrike',5.6], zscaler:['Zscaler',1.35], okta:['Okta',3.038],
+    juniper:['Juniper Networks',3.835], aruba:['Aruba',2.031], rubrik:['Rubrik',3.48], cohesity:['Cohesity',6.787],
+    commvault:['Commvault',6.065], redhat:['Red Hat',4.22], citrix:['Citrix',2.913], ibm:['IBM',2.515], sophos:['Sophos',5.938],
+    tenable:['Tenable',7.272], trendmicro:['Trend Micro',2.967], f5:['F5',1.075], zebra:['Zebra Technologies',3.1],
+    adobe:['Adobe',3.795], druva:['Druva',2.8], knowbe4:['KnowBe4',5.475], tanium:['Tanium',3.212], solarwinds:['SolarWinds',4.4],
+    cyberark:['CyberArk',4.951], arcticwolf:['Arctic Wolf',2.312], mirantis:['Mirantis',1.744],
+    curaleaf:['Curaleaf',2.906], mclane:['McLane',2.641], veg:['VEG ER for Pets',0.613], icsolutions:['ICSolutions',2.447],
+    texaschildrens:["Texas Children's Hospital",1.476,'svg'],
+  };
+  const logoH = (ar, area, min, max) => Math.round(Math.max(min, Math.min(max, Math.sqrt(area / ar))));
+  function logoImg(key, area, min, max, img = document.createElement('img')) {
+    const [name, ar, ext] = LOGOS[key];
+    const h = logoH(ar, area, min, max);
+    img.src = `assets/logos/clean/${key}.${ext || 'png'}`;
+    if (!img.alt) img.alt = name;
+    img.height = h; img.width = Math.round(h * ar);
+    img.loading = 'lazy'; img.decoding = 'async';
+    return img;
+  }
+  $$('img[data-logo]').forEach(img => logoImg(img.dataset.logo, 5200, 22, 48, img));
+  const clientRow = $('#clientRow');
+  ['texaschildrens','curaleaf','mclane','icsolutions','veg'].forEach(k => clientRow.appendChild(logoImg(k, 5400, 24, 64)));
+  const rest = ['cisco','dellemc','lenovo','microsoft','crowdstrike','zscaler','okta','juniper','aruba','rubrik','cohesity','commvault','redhat','citrix','ibm','sophos','tenable','trendmicro','f5','zebra','adobe','druva','knowbe4','tanium','solarwinds','cyberark','arcticwolf','mirantis'];
+  const half = Math.ceil(rest.length / 2);
+  [[$('#lmA'), rest.slice(0, half)], [$('#lmB'), rest.slice(half)]].forEach(([track, keys]) => {
+    keys.forEach(k => track.appendChild(logoImg(k, 2600, 18, 40)));
+    keys.forEach(k => { const im = logoImg(k, 2600, 18, 40); im.alt = ''; im.setAttribute('aria-hidden', 'true'); track.appendChild(im); });
+  });
+
+  /* ---------- Nav ---------- */
+  const nav = $('#nav'), toggle = $('#navToggle'), menu = $('#menu');
+  const mItems = [...$$('.m-link', menu), $('.btn', menu)];
+  function setMenu(open) {
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    const step = Math.min(60, 400 / mItems.length);
+    mItems.forEach((el, i) => el.style.transitionDelay = open ? (i * step) + 'ms' : '0ms');
+  }
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  mItems.forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => { nav.classList.toggle('scrolled', scrollY > 24); updateTagline(); ticking = false; });
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+
+  // scrollspy
+  const links = $$('.nav-links a');
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id ? 'true' : 'false'));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  ['approach','benefits','partners','process','results','faq','contact'].forEach(id => spy.observe(document.getElementById(id)));
+
+  /* ---------- Reveal ---------- */
+  const rev = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); }
+  }), { threshold: 0.15 });
+  $$('.reveal').forEach(el => rev.observe(el));
+
+  /* ---------- Counters ---------- */
+  function countUp(el, dur = 1800) {
+    const to = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    if (RM) { el.textContent = pre + fmt(to) + suf; return; }
+    const t0 = performance.now();
+    const tick = now => {
+      const p = Math.min(1, (now - t0) / dur);
+      el.textContent = pre + fmt(to * ease(p)) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); }
+  }), { threshold: 0.6 });
+  $$('[data-count]').forEach(el => cio.observe(el));
+
+  /* ---------- Dot field (hero + CTA) ---------- */
+  function field(canvas, opts = {}) {
+    const ctx = canvas.getContext('2d');
+    const G = opts.gap || 24;
+    let w, h, dpr, cols, rows, visible = true, mouse = { x: -999, y: -999 }, t0 = performance.now();
+    const pulses = [];
+    function size() {
+      dpr = Math.min(2, devicePixelRatio || 1);
+      const r = canvas.getBoundingClientRect();
+      w = r.width; h = r.height;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(w / G) + 1; rows = Math.ceil(h / G) + 1;
+    }
+    function spawn() {
+      const horiz = Math.random() < .5;
+      pulses.push({
+        x: Math.floor(Math.random() * cols) * G, y: Math.floor(Math.random() * rows * .8) * G,
+        dx: horiz ? (Math.random() < .5 ? 1 : -1) : 0, dy: horiz ? 0 : (Math.random() < .5 ? 1 : -1),
+        trail: [], life: 120 + Math.random() * 160, v: 2
+      });
+    }
+    const pc = opts.pulses ?? 7;
+    function frame(now) {
+      if (!visible) return;
+      const t = (now - t0) / 1000;
+      ctx.clearRect(0, 0, w, h);
+      const beamX = ((t * 0.12) % 1.4 - 0.2) * w;
+      for (let i = 0; i < cols; i++) for (let j = 0; j < rows; j++) {
+        const x = i * G, y = j * G;
+        const fadeY = opts.fade ? Math.max(0, 1 - y / h) : 1;
+        let a = 0.09 * fadeY, blue = 0;
+        const dB = Math.abs(x - beamX);
+        if (dB < 140) blue = Math.max(blue, (1 - dB / 140) * 0.55 * fadeY);
+        const dm = Math.hypot(x - mouse.x, y - mouse.y);
+        if (dm < 180) blue = Math.max(blue, (1 - dm / 180) * 0.9);
+        if (blue > 0.02) { ctx.fillStyle = `rgba(61,147,255,${blue})`; ctx.fillRect(x - 1, y - 1, 2, 2); }
+        else { ctx.fillStyle = `rgba(255,255,255,${a})`; ctx.fillRect(x - .75, y - .75, 1.5, 1.5); }
+      }
+      while (pulses.length < pc) spawn();
+      for (let k = pulses.length - 1; k >= 0; k--) {
+        const p = pulses[k];
+        p.x += p.dx * p.v; p.y += p.dy * p.v; p.life--;
+        p.trail.push([p.x, p.y]); if (p.trail.length > 40) p.trail.shift();
+        if (p.x % G === 0 && p.y % G === 0 && Math.random() < .18) {
+          if (p.dx) { p.dy = Math.random() < .5 ? 1 : -1; p.dx = 0; } else { p.dx = Math.random() < .5 ? 1 : -1; p.dy = 0; }
+        }
+        const fadeY = opts.fade ? Math.max(0, 1 - p.y / h) : 1;
+        const lifeA = Math.min(1, p.life / 40);
+        for (let s = 0; s < p.trail.length; s++) {
+          const [tx, ty] = p.trail[s];
+          ctx.fillStyle = `rgba(0,112,255,${(s / p.trail.length) * 0.9 * lifeA * fadeY})`;
+          ctx.fillRect(tx - 1, ty - 1, 2, 2);
+        }
+        ctx.fillStyle = `rgba(160,205,255,${lifeA * fadeY})`;
+        ctx.fillRect(p.x - 1.5, p.y - 1.5, 3, 3);
+        if (p.life <= 0 || p.x < -G || p.x > w + G || p.y < -G || p.y > h + G) pulses.splice(k, 1);
+      }
+      requestAnimationFrame(frame);
+    }
+    size();
+    addEventListener('resize', size);
+    canvas.parentElement.addEventListener('pointermove', e => { const r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+    canvas.parentElement.addEventListener('pointerleave', () => { mouse.x = mouse.y = -999; });
+    if (RM) { visible = true; frame(0); visible = false; return; }
+    new IntersectionObserver(([e]) => { const was = visible; visible = e.isIntersecting; if (visible && !was) requestAnimationFrame(frame); }).observe(canvas);
+    requestAnimationFrame(frame);
+  }
+  field($('#field'), { fade: true, pulses: 8 });
+  field($('#ctaField'), { gap: 28, pulses: 4 });
+
+  /* ---------- Quote console ---------- */
+  const items = [
+    ['Enterprise laptops', 'Hardware · 240 units', 412800, .27],
+    ['Collaboration suite', 'Software · 1,200 seats', 186400, .34],
+    ['Core switching refresh', 'Hardware · 18 units', 238950, .29],
+    ['Endpoint security', 'Software · 3 year term', 97600, .38],
+    ['Deployment and imaging', 'Services · 240 devices', 64300, .22],
+  ];
+  const rowsEl = $('#rows');
+  items.forEach(([n, d, q, m]) => {
+    const r = document.createElement('div');
+    r.className = 'row';
+    r.innerHTML = `<div class="name"><span class="body-5">${n}</span><small class="caption-5">${d}</small></div>
+      <span class="num mono body-6 quoted col-q">$${fmt(q)}</span>
+      <span class="num cell-reveal"><span class="skel"></span><span class="real mono body-5">$${fmt(q * (1 - m))}</span></span>
+      <span class="num cell-reveal"><span class="skel" style="width:48px"></span><span class="real chip caption-3">${Math.round(m * 100)}%</span></span>`;
+    rowsEl.appendChild(r);
+  });
+  const rowEls = $$('.row', rowsEl), beam = $('#beam'), con = $('#console');
+  const totQ = items.reduce((s, i) => s + i[2], 0), totT = items.reduce((s, i) => s + i[2] * (1 - i[3]), 0);
+  const sumQ = $('#sumQ'), sumT = $('#sumT'), sumK = $('#sumK'), barQ = $('#barQ'), barT = $('#barT'), keep = $('#keep');
+  const opts = $$('.opt');
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  function animNum(el, to, dur = 900) {
+    const t0 = performance.now();
+    const tick = now => { const p = Math.min(1, (now - t0) / dur); el.textContent = '$' + fmt(to * ease(p)); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }
+  function resetConsole() {
+    rowEls.forEach(r => r.classList.remove('shown'));
+    barQ.style.transform = barT.style.transform = 'scaleX(0)';
+    sumQ.textContent = sumT.textContent = sumK.textContent = '$0';
+    keep.classList.remove('on'); opts.forEach(o => o.classList.remove('on', 'pick'));
+  }
+  function finalConsole() {
+    rowEls.forEach(r => r.classList.add('shown'));
+    sumQ.textContent = '$' + fmt(totQ); sumT.textContent = '$' + fmt(totT); sumK.textContent = '$' + fmt(totQ - totT);
+    barQ.style.transform = 'scaleX(1)'; barT.style.transform = `scaleX(${totT / totQ})`;
+    keep.classList.add('on'); opts.forEach(o => o.classList.add('on')); opts[0].classList.add('pick');
+  }
+  let conVisible = false, running = false;
+  async function runConsole() {
+    if (running) return; running = true;
+    while (conVisible) {
+      resetConsole();
+      await wait(700);
+      barQ.style.transform = 'scaleX(1)'; animNum(sumQ, totQ);
+      beam.classList.add('on');
+      for (let i = 0; i < rowEls.length; i++) {
+        const r = rowEls[i];
+        beam.style.transition = 'transform 700ms cubic-bezier(0.22,1,0.36,1)';
+        beam.style.transform = `translateY(${r.offsetTop + r.offsetHeight / 2 - 32}px)`;
+        await wait(650);
+        r.classList.add('shown');
+        await wait(250);
+      }
+      beam.classList.remove('on');
+      barT.style.transform = `scaleX(${totT / totQ})`; animNum(sumT, totT, 1200);
+      await wait(900);
+      keep.classList.add('on'); animNum(sumK, totQ - totT, 1000);
+      await wait(900);
+      for (const o of opts) { o.classList.add('on'); await wait(220); }
+      await wait(500);
+      for (let k = 0; k < 3; k++) { opts.forEach(o => o.classList.remove('pick')); opts[k].classList.add('pick'); await wait(900); }
+      await wait(2600);
+    }
+    running = false;
+  }
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) con.classList.add('in');
+    conVisible = e.isIntersecting;
+    if (RM) { finalConsole(); return; }
+    if (conVisible) runConsole();
+  }, { threshold: 0.25 }).observe(con);
+
+  /* ---------- Bento loops ---------- */
+  function loopWhenVisible(el, fn, interval) {
+    let id = null;
+    if (RM) { fn(true); return; }
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !id) { fn(); id = setInterval(fn, interval); }
+      else if (!e.isIntersecting && id) { clearInterval(id); id = null; }
+    }, { threshold: .3 }).observe(el);
+  }
+  const split = $('#split');
+  loopWhenVisible(split, (still) => { if (still) { split.classList.add('go'); return; } split.classList.toggle('go'); }, 2600);
+  const ocards = $$('.ocard'); let oi = 0;
+  loopWhenVisible($('#ostack'), (still) => { ocards.forEach(c => c.classList.remove('on')); ocards[still ? 0 : oi++ % 3].classList.add('on'); }, 1600);
+  const tl = $$('#term .l'); let ti = 0;
+  loopWhenVisible($('#term'), (still) => {
+    if (still) { tl.forEach(l => l.classList.add('on')); return; }
+    if (ti === tl.length + 3) { tl.forEach(l => l.classList.remove('on')); ti = 0; return; }
+    if (ti < tl.length) tl[ti].classList.add('on'); ti++;
+  }, 600);
+  const flow = $('#flow');
+  loopWhenVisible(flow, (still) => { if (still) { flow.classList.add('go'); return; } flow.classList.toggle('go'); }, 2200);
+
+  /* ---------- Process ---------- */
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { $('#steps').classList.add('in'); o.disconnect(); } }, { threshold: .35 }).observe($('#steps'));
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { $('#bigCard').classList.add('in'); o.disconnect(); } }, { threshold: .4 }).observe($('#bigCard'));
+
+  /* ---------- Tagline word reveal ---------- */
+  const tg = $('#tagline');
+  const hl = (tg.dataset.hl || '').toLowerCase().split(' ');
+  const parts = tg.innerHTML.split(/(<br>)/);
+  tg.innerHTML = parts.map(p => p === '<br>' ? '<br>' : p.trim().split(/\s+/).map(w => `<span class="w${hl.includes(w.toLowerCase()) ? ' hl' : ''}">${w}</span>`).join(' ')).join(' ');
+  const words = $$('.w', tg);
+  function updateTagline() {
+    if (RM) return;
+    const line = innerHeight * 0.62;
+    for (const w of words) w.classList.toggle('on', w.getBoundingClientRect().top < line);
+  }
+  if (RM) words.forEach(w => w.classList.add('on'));
+  updateTagline();
+
+  /* ---------- Form ---------- */
+  const form = $('#leadForm'), done = $('#formDone'), btn = $('#submitBtn');
+  const ENDPOINT = ''; // Set to your form handler URL (for example a CRM webhook). Empty uses an email draft.
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function check(input) {
+    const f = input.closest('.field'); let ok = true;
+    if (input.required && !input.value.trim()) ok = false;
+    if (ok && input.type === 'email' && !emailRe.test(input.value.trim())) ok = false;
+    f.classList.toggle('err', !ok);
+    input.setAttribute('aria-invalid', !ok);
+    return ok;
+  }
+  $$('input,textarea', form).forEach(i => {
+    i.addEventListener('blur', () => { if (i.value) check(i); });
+    i.addEventListener('input', () => { if (i.closest('.field').classList.contains('err')) check(i); });
+  });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fields = $$('[required]', form);
+    const bad = fields.filter(i => !check(i));
+    if (bad.length) { bad[0].focus(); return; }
+    const data = Object.fromEntries(new FormData(form));
+    btn.classList.add('loading'); btn.disabled = true;
+    try {
+      if (ENDPOINT) {
+        const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error();
+        $('#doneTitle').textContent = 'Request received';
+        $('#doneText').textContent = `Thanks, ${data.name.split(' ')[0]}. The noVAR team will reach out at ${data.email}.`;
+      } else {
+        await wait(600);
+        const body = `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone || 'not provided'}\n\n${data.message}`;
+        location.href = `mailto:help@novar.solutions?subject=${encodeURIComponent('Spend review request from ' + data.company)}&body=${encodeURIComponent(body)}`;
+        $('#doneTitle').textContent = 'Request ready to send';
+        $('#doneText').textContent = `Your email app opened with the details filled in. Send it and the noVAR team will reply to ${data.email}.`;
+      }
+      form.style.display = 'none'; done.classList.add('show');
+    } catch {
+      btn.insertAdjacentHTML('afterend', '<p class="caption-5" style="color:var(--bad)" id="sendErr">Sending failed. Check your connection and try again, or email help@novar.solutions.</p>');
+    } finally {
+      btn.classList.remove('loading'); btn.disabled = false;
+    }
+  });
+  $('#resetForm').addEventListener('click', () => { form.reset(); done.classList.remove('show'); form.style.display = ''; $('#fName').focus(); });
+})();
+</script>
+</body>
+</html>
